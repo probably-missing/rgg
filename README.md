@@ -1,5 +1,7 @@
 # notes (for my sanity)
 
+just stuff i need to keep track of. if people actually are intrested in this garbage of mine, then i'll make an actual readme.
+
 ## what happens upon a map being loaded:
 
 1. handler checks if the map exists
