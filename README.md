@@ -13,6 +13,3 @@ just stuff i need to keep track of. if people actually are intrested in this gar
 
 s& - sandbox
 there are no rules!
-
-ud - ultimate destruction
-kill as many players as possible before the timer ends or the score cap is reached. nps are usually 1 point, with players being worth 10. these values can be adjusted.
