@@ -14,15 +14,21 @@ func join() -> void:
 	error("feature nonexistent!")
 
 func singleplayer() -> void:
-	get_tree().change_scene_to_file("res://core/maps/s&_dev.tscn")
-	await get_tree().create_timer(0.1).timeout
-	var scene_root = get_tree().current_scene
-	var parent = scene_root.get_node_or_null("WorldEnvironment/special")
-	var spawn = parent.get_node_or_null("spawn")
-	var player = player_scene.instantiate()
-	parent.add_child(player)
-	player.global_position = spawn.global_position
-	
+	var map = "res://core/maps/s&_dev.tscn"
+	if FileAccess.file_exists(map) == false: # check if the map exists
+		error("map non-existant!")
+	else:
+		get_tree().change_scene_to_file(map)
+	while get_tree().current_scene == null or get_tree().current_scene.scene_file_path != map:
+		await get_tree().process_frame
+	var scene = get_tree().current_scene
+	var spawn = scene.get_node_or_null("WorldEnvironment/spawn")
+	if spawn == null: # check if spawn exists
+		error("spawn not found in map!")
+	else:
+		var player = player_scene.instantiate()
+		spawn.add_child(player)
+		player.global_position = spawn.global_position
 
 func loadout(mode, source):
 	if mode == "pull": # get the weapons options on scene change
@@ -61,10 +67,9 @@ func death(player):
 	# play reconnect animation
 	# give control back to player
 
-func error(error):
+func error(message):
 	get_tree().change_scene_to_file("res://core/scenes/menus/error.tscn")
 	while get_tree().current_scene == null or get_tree().current_scene.scene_file_path != "res://core/scenes/menus/error.tscn":
-		await get_tree().process_frame  # wait one frame before checking again
-	
-	get_tree().current_scene.get_node("main/VBoxContainer/error_code").text = "[center][color=#ff554c][pulse freq=1.0 color=black ease=-1.0] error: " + str(error) + "[/pulse][/color][/center]"
-	push_error("yo, we fucked up. error:", error)
+		await get_tree().process_frame
+	get_tree().current_scene.get_node("main/VBoxContainer/error_code").text = "[center][color=#ff554c][pulse freq=1.0 color=black ease=-1.0] error: " + str(message) + "[/pulse][/color][/center]"
+	push_error("yo, we fucked up. error:", message)
