@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://chqh0ydwexmyj"]
+
+[ext_resource type="Script" uid="uid://dxf1o5i4cdxne" path="res://core/scripts/bullet_test.gd" id="1_l884y"]
+[ext_resource type="ArrayMesh" uid="uid://bjabx3bfert6k" path="res://assets/models/bullet_test.obj" id="2_4oy0w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xoiqm"]
+radius = 0.0610216
+height = 0.409279
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_l884y")
+
+[node name="Bullet" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, -0.0581229, 0)
+mesh = ExtResource("2_4oy0w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_xoiqm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="destroy"]

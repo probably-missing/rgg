@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cffwskjjkad7n"]
+
+[ext_resource type="ArrayMesh" uid="uid://dbmykvvvso8rh" path="res://assets/models/gun-test.obj" id="1_u7uso"]
+
+[node name="gun_test" type="Marker3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0.787337, -0.0112587, 0)
+mesh = ExtResource("1_u7uso")
+
+[node name="muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68517, 0.117851, 0)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp7qkcmq3i7qj"]
+
+[sub_resource type="Gradient" id="Gradient_83no2"]
+offsets = PackedFloat32Array(0.980263, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tdpgl"]
+gradient = SubResource("Gradient_83no2")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_3bobg"]
+offsets = PackedFloat32Array(0.983553, 1)
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ngyco"]
+gradient = SubResource("Gradient_3bobg")
+fill_from = Vector2(1, 0)
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="healthbar" type="TextureProgressBar" parent="."]
+offset_top = 631.0
+offset_right = 397.0
+offset_bottom = 648.0
+max_value = 300.0
+value = 300.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_tdpgl")
+texture_progress = SubResource("GradientTexture2D_ngyco")

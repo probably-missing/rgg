@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://q4vfelr7h7vf"]
+
+[ext_resource type="Script" uid="uid://bhadhvd21rxwe" path="res://core/scripts/handler.gd" id="1_7g378"]
+
+[node name="handler" type="Node"]
+editor_description = "he's the handler. he handles things."
+script = ExtResource("1_7g378")

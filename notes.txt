@@ -1,0 +1,30 @@
+file structure:
+	rgg
+		core
+			maps
+				sand_dev
+				...etc
+			scripts
+				player
+				handler
+				...etc
+			textures
+				dev_gradient
+				...etc
+			sounds
+				deathsfx
+					...sounds
+				material
+					...sounds
+				...etc
+			scenes
+				player
+				...etc
+		mod
+			...etc
+		build
+			...uhhh
+		addons
+			...addon stuff, we don't really touch this
+
+that's about it

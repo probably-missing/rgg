@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxomfbj5v8ypg"]
+
+[ext_resource type="Script" uid="uid://tfs81xofux34" path="res://core/scripts/mainmenu.gd" id="1_ccmni"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(640, 360)
+
+[node name="main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccmni")
+
+[node name="Button" type="Button" parent="main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -205.0
+offset_right = 205.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.0
+offset_top = -90.0
+offset_right = -162.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "random gun guys"
+
+[node name="singleplayer" type="Button" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "singleplayer"
+
+[node name="host" type="Button" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "host"
+
+[node name="join" type="Button" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "join"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="main"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = -90.0
+offset_right = 461.0
+offset_bottom = 154.0
+
+[node name="Label" type="Label" parent="main/VBoxContainer2"]
+layout_mode = 2
+text = "slot1"
+
+[node name="slot1" type="OptionButton" parent="main/VBoxContainer2"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "none"
+popup/item_0/id = 0
+popup/item_0/separator = true
+popup/item_1/text = "dev gun"
+popup/item_1/id = 1
+
+[node name="Label2" type="Label" parent="main/VBoxContainer2"]
+layout_mode = 2
+text = "slot2"
+
+[node name="slot2" type="OptionButton" parent="main/VBoxContainer2"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "none"
+popup/item_0/id = 0
+
+[node name="Label3" type="Label" parent="main/VBoxContainer2"]
+layout_mode = 2
+text = "slot3"
+
+[node name="slot3" type="OptionButton" parent="main/VBoxContainer2"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "none"
+popup/item_0/id = 0
+
+[node name="Label4" type="Label" parent="main/VBoxContainer2"]
+layout_mode = 2
+text = "slot4"
+
+[node name="slot4" type="OptionButton" parent="main/VBoxContainer2"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "none"
+popup/item_0/id = 0
+
+[connection signal="pressed" from="main/VBoxContainer/singleplayer" to="main" method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/host" to="main" method="_on_host_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/join" to="main" method="_on_join_pressed"]

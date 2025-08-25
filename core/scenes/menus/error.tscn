@@ -1,0 +1,169 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2tccbtn4nm5u"]
+
+[ext_resource type="Texture2D" uid="uid://dh7u5lwgqblg1" path="res://core/textures/notfound.png" id="1_lx3cr"]
+[ext_resource type="FontFile" uid="uid://d1h4fs4rq6cqd" path="res://core/fonts/Xolonium-Regular.otf" id="2_qjnni"]
+[ext_resource type="FontFile" uid="uid://oiurdiftqmod" path="res://core/fonts/SmartFontUI.otf" id="3_jih7g"]
+[ext_resource type="Script" uid="uid://bevyop5c53aqr" path="res://core/scripts/takemeback.gd" id="4_u3lp7"]
+[ext_resource type="AudioStream" uid="uid://d2mx6gm71rp88" path="res://core/sounds/music/depths.ogg" id="5_yuppn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kffcv"]
+font = ExtResource("3_jih7g")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_aiixn"]
+font = ExtResource("3_jih7g")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_pejde"]
+font = ExtResource("3_jih7g")
+font_color = Color(0.556953, 0.556953, 0.556953, 1)
+
+[sub_resource type="Animation" id="Animation_kffcv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.615686)]
+}
+
+[sub_resource type="Animation" id="Animation_gh1iq"]
+resource_name = "fadein"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.615686)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aiixn"]
+_data = {
+&"RESET": SubResource("Animation_kffcv"),
+&"fadein": SubResource("Animation_gh1iq")
+}
+
+[node name="error" type="Node"]
+
+[node name="main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="main"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="main"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -246.0
+offset_right = 561.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4319, 0.4319)
+texture = ExtResource("1_lx3cr")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.0
+offset_top = -44.0
+offset_right = 367.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="error_code" type="RichTextLabel" parent="main/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_qjnni")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[center][color=#ff554c][pulse freq=1.0 color=black ease=-1.0]error![/pulse][/color][/center]"
+fit_content = true
+autowrap_mode = 0
+tab_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "An error occurred, and we cannot continue!"
+label_settings = SubResource("LabelSettings_kffcv")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "I can't fix what's broken, but I can at least bring you back to the main menu."
+label_settings = SubResource("LabelSettings_aiixn")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="main/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="main/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qjnni")
+theme_override_font_sizes/font_size = 26
+text = "take me back!"
+script = ExtResource("4_u3lp7")
+
+[node name="HSeparator2" type="HSeparator" parent="main/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="main/VBoxContainer"]
+layout_mode = 2
+text = "if you need help, maybe try asking the devloper?"
+label_settings = SubResource("LabelSettings_pejde")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yuppn")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.615686)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aiixn")
+}
+autoplay = "fadein"
+movie_quit_on_finish = true
+
+[connection signal="pressed" from="main/VBoxContainer/Button" to="main/VBoxContainer/Button" method="_on_pressed"]
