@@ -22,19 +22,16 @@ func singleplayer() -> void:
 	while get_tree().current_scene == null or get_tree().current_scene.scene_file_path != map:
 		await get_tree().process_frame
 	var scene = get_tree().current_scene
-	var spawn = scene.get_node_or_null("WorldEnvironment/spawn")
-	if spawn == null: # check if spawn exists
-		error("spawn not found in map!")
-	else:
-		var player = player_scene.instantiate()
-		spawn.add_child(player)
-		player.global_position = spawn.global_position
+	var map_handler = scene.get_node_or_null("map_handler")
+	if map_handler == null:
+		error("map_handler doesn't exist in map!")
+	map_handler.startup()
 
 func loadout(mode, source):
-	if mode == "pull": # get the weapons options on scene change
+	if mode == "push": # push changes to the loadout to the handler
 		slot1 = source.get_node("VBoxContainer2/slot1").selected
 		print("we have ", slot1, " equipped in slot1")
-	if mode == "push": # give the player their weapons, source SHOULD be the player.
+	if mode == "pull": # give the player their weapons, source SHOULD be the player.
 		var slot1_scene = null
 		if slot1 == 0: # nothing
 			print("player has nothing in slot1.")
@@ -47,7 +44,7 @@ func loadout(mode, source):
 		if slot1_scene != null:
 			source.add_child(slot1_scene)
 			slot1_scene.global_position = source.get_node("weapon_pos1").global_position
-		print(source.get_node("weapon_pos1").global_position)
+		#print(source.get_node("weapon_pos1").global_position) # not sure why this is broken, but it is.
 
 func death(player):
 	player.controlable_movement = false # you ain't going nowhere
@@ -72,4 +69,4 @@ func error(message):
 	while get_tree().current_scene == null or get_tree().current_scene.scene_file_path != "res://core/scenes/menus/error.tscn":
 		await get_tree().process_frame
 	get_tree().current_scene.get_node("main/VBoxContainer/error_code").text = "[center][color=#ff554c][pulse freq=1.0 color=black ease=-1.0] error: " + str(message) + "[/pulse][/color][/center]"
-	push_error("yo, we fucked up. error:", message)
+	push_error("yo, we fucked up. error: ", message)

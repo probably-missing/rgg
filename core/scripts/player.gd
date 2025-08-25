@@ -8,7 +8,7 @@ var max_speed = 10
 var health = 300
 
 func _ready() -> void:
-	Handler.loadout("push", self) # yo where my guns at?
+	Handler.loadout("pull", self) # yo where my guns at?
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("killbind"):
