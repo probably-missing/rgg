@@ -8,6 +8,8 @@ just stuff i need to keep track of. if people actually are intrested in this gar
 2. handler checks if the map handler exists
 3. map handler checks if spawn exists
 4. map handler spawns player at their team spawn, using data from the handler
+5. player requests weapons from the handler
+6. player has fun (debateable)
 
 ## map types:
 
