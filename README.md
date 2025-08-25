@@ -13,5 +13,4 @@ just stuff i need to keep track of. if people actually are intrested in this gar
 
 ## map types:
 
-s& - sandbox
-there are no rules!
+s& - sandbox - there are no rules!
