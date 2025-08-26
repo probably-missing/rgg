@@ -24,6 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_ccmni")
 
 [node name="ColorRect" type="ColorRect" parent="main"]
+layout_mode = 0
 offset_left = -640.0
 offset_top = -360.0
 offset_right = 640.0
