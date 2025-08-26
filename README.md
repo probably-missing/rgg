@@ -44,7 +44,7 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 				- ...etc [trust me, there's gonna be a lot.]
 			- dynamic [anything that moves/changes; ex. props, doors, etc.]
 				- dynamicpartnamehere (RigidBody3D)
-      			- ...etc
+	  			- ...etc
 			- light
 				- sun (DirectionalLight3D)
 				- ...etc [more lights]

@@ -12,5 +12,5 @@ func startup() -> void:
 func spawn(spawnpoint):
 	var player = Handler.player_scene.instantiate()
 	spawnpoint.add_child(player)
-	add_to_group("orange") # i still need to actually ask the player what team they wanna be on buttt i'll do that later
+	player.add_to_group("orange") # i still need to actually ask the player what team they wanna be on buttt i'll do that later
 	player.global_position = spawnpoint.global_position

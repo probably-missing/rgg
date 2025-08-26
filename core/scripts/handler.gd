@@ -14,7 +14,7 @@ func join() -> void:
 	error("feature nonexistent!")
 
 func singleplayer() -> void:
-	var map = "res://core/maps/s&_dev.tscn"
+	var map = "res://core/maps/s&_dev/s&_dev.tscn"
 	if FileAccess.file_exists(map) == false: # check if the map exists
 		error("map non-existant!")
 	else:
