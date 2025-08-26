@@ -10,7 +10,6 @@ handler
 - keeping player data
 - kindly asking the map_handler to do things
 - networking and lobbies (maybe)
-- player team affiliation
 
 map_handler
 - spawning the player
@@ -18,6 +17,7 @@ map_handler
 	- dead/alive
 	- special objectives/modifiers (ex. is player marked for death?)
 	- maybe more
+	- player team affiliation (this is so if maps can have special teams, or no teams at all.)
 - keeping track of game status 
 	- timer
 	- win condition (ex. give a point to purp team if they own all the control points)
