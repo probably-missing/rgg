@@ -31,12 +31,13 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 - <mapname> (Node)
 	- map_handler (Node) [every map must have this]
 	- WorldEnviornment (WorldEnviornment) [everything in contained in here]
-		- orange_spawns (Node)
-			- spawn<int> (Marker3D)
-			...etc [more spawns]
-		- purple_spawns (Node)
-			- spawn<int> (Marker3D)
-			...etc [more spawns]
+		- spawns (Node)
+			- orange_spawns (Node)
+				- spawn<int> (Marker3D)
+				...etc [more spawns]
+			- purple_spawns (Node)
+				- spawn<int> (Marker3D)
+				...etc [more spawns]
 		- main (Node)
 			- static [anything that doesn't move]
 				- <name> (StaticBody3D)
