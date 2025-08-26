@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxomfbj5v8ypg"]
+[gd_scene load_steps=6 format=3 uid="uid://cxomfbj5v8ypg"]
 
 [ext_resource type="Script" uid="uid://tfs81xofux34" path="res://core/scripts/mainmenu.gd" id="1_ccmni"]
+[ext_resource type="FontFile" uid="uid://d1h4fs4rq6cqd" path="res://core/fonts/Xolonium-Regular.otf" id="2_sh47t"]
+[ext_resource type="FontFile" uid="uid://oiurdiftqmod" path="res://core/fonts/SmartFontUI.otf" id="3_m5tk4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wtiu"]
+font = ExtResource("2_sh47t")
+font_size = 151
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ah3q"]
+font = ExtResource("2_sh47t")
 
 [node name="Camera2D" type="Camera2D"]
 position = Vector2(640, 360)
@@ -14,56 +23,75 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ccmni")
 
-[node name="Button" type="Button" parent="main"]
+[node name="ColorRect" type="ColorRect" parent="main"]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="main"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = -33.0
+offset_bottom = -33.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="main/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -205.0
-offset_top = -205.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -275.0
+offset_top = -72.0
+offset_right = 275.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+text = "R  G  G"
+label_settings = SubResource("LabelSettings_1wtiu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="main"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -505.0
-offset_top = -90.0
-offset_right = -162.0
-offset_bottom = 91.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="main/VBoxContainer"]
+[node name="Label2" type="Label" parent="main/Control/Label"]
 layout_mode = 2
-text = "random gun guys"
+offset_top = -36.5
+offset_right = 575.0
+offset_bottom = 145.5
+text = "                      andom                              un                                      uys"
+label_settings = SubResource("LabelSettings_4ah3q")
+vertical_alignment = 2
 
-[node name="singleplayer" type="Button" parent="main/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="main"]
 layout_mode = 2
-text = "singleplayer"
+offset_left = -275.0
+offset_top = 48.0
+offset_right = 300.0
+offset_bottom = 102.0
+alignment = 1
 
-[node name="host" type="Button" parent="main/VBoxContainer"]
+[node name="play" type="Button" parent="main/HBoxContainer"]
 layout_mode = 2
-text = "host"
+theme_override_fonts/font = ExtResource("3_m5tk4")
+text = "    play    "
 
-[node name="join" type="Button" parent="main/VBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="main/HBoxContainer"]
 layout_mode = 2
-text = "join"
+theme_override_constants/separation = 80
+
+[node name="settings" type="Button" parent="main/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_m5tk4")
+text = "   settings   "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="main"]
 layout_mode = 0
-offset_left = 108.0
+offset_left = 731.0
 offset_top = -90.0
-offset_right = 461.0
+offset_right = 1084.0
 offset_bottom = 154.0
 
 [node name="Label" type="Label" parent="main/VBoxContainer2"]
@@ -114,6 +142,5 @@ item_count = 1
 popup/item_0/text = "none"
 popup/item_0/id = 0
 
-[connection signal="pressed" from="main/VBoxContainer/singleplayer" to="main" method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="main/VBoxContainer/host" to="main" method="_on_host_pressed"]
-[connection signal="pressed" from="main/VBoxContainer/join" to="main" method="_on_join_pressed"]
+[connection signal="pressed" from="main/HBoxContainer/play" to="main" method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="main/HBoxContainer/settings" to="main" method="_on_host_pressed"]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp7qkcmq3i7qj"]
+[gd_scene load_steps=6 format=3 uid="uid://bp7qkcmq3i7qj"]
+
+[ext_resource type="Texture2D" uid="uid://dujf0chary08i" path="res://core/textures/crosshair.svg" id="1_8lk8s"]
 
 [sub_resource type="Gradient" id="Gradient_83no2"]
 offsets = PackedFloat32Array(0.980263, 1)
@@ -18,11 +20,35 @@ fill_from = Vector2(1, 0)
 [node name="HUD" type="CanvasLayer"]
 
 [node name="healthbar" type="TextureProgressBar" parent="."]
-offset_top = 631.0
-offset_right = 397.0
-offset_bottom = 648.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.5
+offset_top = -30.0
+offset_right = 198.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
 max_value = 300.0
 value = 300.0
+fill_mode = 6
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_tdpgl")
 texture_progress = SubResource("GradientTexture2D_ngyco")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.775
+offset_top = -22.62
+offset_right = 104.225
+offset_bottom = 73.38
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("1_8lk8s")

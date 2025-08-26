@@ -28,9 +28,10 @@ func singleplayer() -> void:
 	map_handler.startup()
 
 func loadout(mode, source):
-	if mode == "push": # push changes to the loadout to the handler
+	if mode == "push": # push changes to the loadout to the handler, this SHOULD be the loadout menu.
 		slot1 = source.get_node("VBoxContainer2/slot1").selected
 		print("we have ", slot1, " equipped in slot1")
+
 	if mode == "pull": # give the player their weapons, source SHOULD be the player.
 		var slot1_scene = null
 		if slot1 == 0: # nothing
@@ -39,7 +40,7 @@ func loadout(mode, source):
 			slot1_scene = preload("res://core/scenes/weapons/weapon_gun_dev.tscn").instantiate()
 			print("player has dev gun in slot1.")
 		else:
-			push_warning("the item in slot1 is invalid! current value is: ", slot1)
+			push_error("the item in slot1 is invalid! current value is: ", slot1)
 			
 		if slot1_scene != null:
 			source.add_child(slot1_scene)
@@ -56,13 +57,6 @@ func death(player):
 	player.get_node("CameraPivot").top_level = false
 	player.get_node("CameraPivot/Camera3D").controlable = false
 	await get_tree().create_timer(3).timeout
-	player.queue_free()
-	singleplayer()
-	# wait several seconds
-	# play disconnecting animation
-	# respawn player
-	# play reconnect animation
-	# give control back to player
 
 func error(message):
 	get_tree().change_scene_to_file("res://core/scenes/menus/error.tscn")

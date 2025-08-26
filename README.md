@@ -2,6 +2,30 @@
 
 just stuff i need to keep track of. if people actually are intrested in this garbage of mine, then i'll make an actual readme.
 
+## script responsibilities
+
+handler
+- player loadout
+- loading maps
+- keeping player data
+- kindly asking the map_handler to do things
+- networking and lobbies (maybe)
+- player team affiliation
+
+map_handler
+- spawning the player
+- keeping track of player status
+	- dead/alive
+	- special objectives/modifiers (ex. is player marked for death?)
+	- maybe more
+- keeping track of game status 
+	- timer
+	- win condition (ex. give a point to purp team if they own all the control points)
+	- scoreboard
+	- maybe more
+
+this seperation of responsibilities exists not only to keep my spaghetti code in check, but also to give more control to map makers.
+
 ## what happens upon a map being loaded:
 
 1. handler checks if the map exists
