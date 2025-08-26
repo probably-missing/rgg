@@ -28,7 +28,7 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 
 ## map structure
 
-- <mapname> (Node)
+- maptype_mapname (Node)
 	- map_handler (Node) [every map must have this]
 	- WorldEnviornment (WorldEnviornment) [everything in contained in here]
 		- spawns (Node)
@@ -40,10 +40,11 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 				...etc [more spawns]
 		- main (Node)
 			- static [anything that doesn't move]
-				- <name> (StaticBody3D)
+				- staticpartnamehere (StaticBody3D)
 				...etc [trust me, there's gonna be a lot.]
 			- dynamic [anything that moves/changes; ex. props, doors, etc.]
-				- <name> (RigidBody3D)
+				- dynamicpartnamehere (RigidBody3D)
+      			...etc
 			- light
 				- sun (DirectionalLight3D)
 				...etc [more lights]
