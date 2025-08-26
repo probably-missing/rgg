@@ -33,10 +33,10 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 	- WorldEnviornment (WorldEnviornment) [everything in contained in here]
 		- spawns (Node)
 			- orange_spawns (Node)
-				- spawn<int> (Marker3D)
+				- spawn0 (Marker3D)
 				...etc [more spawns]
 			- purple_spawns (Node)
-				- spawn<int> (Marker3D)
+				- spawn0 (Marker3D)
 				...etc [more spawns]
 		- main (Node)
 			- static [anything that doesn't move]
