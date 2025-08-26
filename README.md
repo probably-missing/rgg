@@ -26,6 +26,28 @@ map_handler
 
 this seperation of responsibilities exists not only to keep my spaghetti code in check, but also to give more control to map makers.
 
+## map structure
+
+- <mapname> (Node)
+	- map_handler (Node) [every map must have this]
+	- WorldEnviornment (WorldEnviornment) [everything in contained in here]
+		- orange_spawns (Node)
+			- spawn<int> (Marker3D)
+			...etc [more spawns]
+		- purple_spawns (Node)
+			- spawn<int> (Marker3D)
+			...etc [more spawns]
+		- main (Node)
+			- static [anything that doesn't move]
+				- <name> (StaticBody3D)
+				...etc [trust me, there's gonna be a lot.]
+			- dynamic [anything that moves/changes; ex. props, doors, etc.]
+				- <name> (RigidBody3D)
+			- light
+				- sun (DirectionalLight3D)
+				...etc [more lights]
+			...whatever else a mapper may need
+
 ## what happens upon a map being loaded:
 
 1. handler checks if the map exists

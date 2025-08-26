@@ -32,6 +32,11 @@ window/stretch/scale_mode="integer"
 
 enabled=PackedStringArray("res://addons/UniParticles3D/plugin.cfg", "res://addons/fancy_editor_sounds/plugin.cfg")
 
+[global_group]
+
+purple="node is part of the purple team"
+orange="node is part of the orange team"
+
 [input]
 
 up={

@@ -18,5 +18,13 @@ sky = SubResource("Sky_ulx5s")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nv1qx")
 
-[node name="spawn" type="Marker3D" parent="WorldEnvironment"]
+[node name="orange_spawn" type="Marker3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25113, 0)
+
+[node name="main" type="Node" parent="WorldEnvironment"]
+
+[node name="static" type="Node" parent="WorldEnvironment/main"]
+
+[node name="light" type="Node" parent="WorldEnvironment/main"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/main/light"]
