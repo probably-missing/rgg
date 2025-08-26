@@ -29,8 +29,8 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 ## map structure
 
 - maptype_mapname (Node)
-	- map_handler (Node) [every map must have this]
-	- WorldEnviornment (WorldEnviornment) [everything in contained in here]
+	- map_handler (Node) **[every map must have this]**
+	- WorldEnviornment (WorldEnviornment) [everything is in contained in here]
 		- spawns (Node)
 			- orange_spawns (Node)
 				- spawn0 (Marker3D)
