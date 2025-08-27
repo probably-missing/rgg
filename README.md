@@ -14,7 +14,7 @@ handler
 map_handler
 - spawning the player
 - keeping track of player status
-	- dead/alive
+	- dead/alive [not directly. the player keeps track of their health and tells the map_handler when they die or come back alive somehow.]
 	- special objectives/modifiers (ex. is player marked for death?)
 	- maybe more
 	- player team affiliation (this is so if maps can have special teams, or no teams at all.)
