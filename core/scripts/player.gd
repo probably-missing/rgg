@@ -2,9 +2,9 @@ extends RigidBody3D
 
 var controlable_movement = true
 var controlable_camera = true
-var speed = 25
+var speed = 20
 var jump = 100
-var max_speed = 10
+var max_speed = 25
 var health = 300
 
 func _ready() -> void:

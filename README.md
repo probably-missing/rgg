@@ -62,3 +62,4 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 ## map types:
 
 s& - sandbox - there are no rules!
+ffa - free for all - a mode that only exists so i can put off adding teams lol
