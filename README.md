@@ -14,7 +14,7 @@ handler
 map_handler
 - spawning the player
 - keeping track of player status
-	- dead/alive
+	- dead/alive [not directly. the player keeps track of their health and tells the map_handler when they die or come back alive somehow.]
 	- special objectives/modifiers (ex. is player marked for death?)
 	- maybe more
 	- player team affiliation (this is so if maps can have special teams, or no teams at all.)
@@ -31,7 +31,7 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 - maptype_mapname (Node)
 	- map_handler (Node) **[every map must have this]**
 	- WorldEnviornment (WorldEnviornment) [everything is in contained in here]
-		- spawns (Node)
+		- spawns (Node) [in the case of game modes without teams, spawns can be put directly in this node instead of one node down]
 			- orange_spawns (Node)
 				- spawn0 (Marker3D)
 				- ...etc [more spawns]
@@ -61,5 +61,5 @@ this seperation of responsibilities exists not only to keep my spaghetti code in
 
 ## map types:
 
-s& - sandbox - there are no rules!
-ffa - free for all - a mode that only exists so i can put off adding teams lol
+- s& - sandbox - there are no rules!
+- ffa - free for all - a mode that only exists so i can put off adding teams lol
